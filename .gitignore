@@ -8,6 +8,3 @@ logs/
 # Ignore everything in data/raw except netflix_titles.csv
 data/raw/*
 !data/raw/netflix_titles.csv
-
-# You can also explicitly keep processed data (optional)
-# data/processed/
