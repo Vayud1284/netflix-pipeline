@@ -1,6 +1,9 @@
 import pandas as pd
+import logging
 
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
+    logging.info("Starting preprocessing.")
+
     """Clean and preprocess the Netflix dataset."""
 
     # Drop rows with missing titles or types
@@ -17,5 +20,6 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
 
     # Standardize column names (lowercase, underscores)
     df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
+    logging.info(f"Preprocessing complete. Shape: {df.shape}")
 
     return df
