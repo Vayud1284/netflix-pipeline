@@ -5,6 +5,7 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
 
     # Drop rows with missing titles or types
     df = df.dropna(subset=["title", "type"])
+    df = df.drop_duplicates()
 
     # Strip leading/trailing whitespace from all string columns
     str_cols = df.select_dtypes(include='object').columns
