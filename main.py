@@ -1,16 +1,11 @@
 from src.ingest import load_csv, save_as_parquet
 from src.preprocess import preprocess_data
-import os
+from src.transform import transform_data
 
-# File paths
-raw_path = os.path.join("data", "raw", "netflix_titles.csv")
-processed_path = os.path.join("data", "processed", "netflix_titles.parquet")
+raw_path = "data/raw/netflix_titles.csv"
+processed_path = "data/processed/netflix_titles.parquet"
 
-# Load raw data
 df = load_csv(raw_path)
-
-# Preprocess the data
-df_clean = preprocess_data(df)
-
-# Save processed data
-save_as_parquet(df_clean, processed_path)
+df = preprocess_data(df)
+df = transform_data(df)
+save_as_parquet(df, processed_path)
