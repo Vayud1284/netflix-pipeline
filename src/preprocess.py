@@ -4,7 +4,7 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """Clean and preprocess the Netflix dataset."""
 
     # Drop rows with missing titles or types
-    df = df.dropna(subset=["title", "type"])
+    df = df.dropna(subset=["title", "type"])  #s8 US  s13 germany
     df = df.drop_duplicates()
 
     # Strip leading/trailing whitespace from all string columns
