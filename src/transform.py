@@ -1,6 +1,9 @@
 import pandas as pd
+import logging
 
 def transform_data(df: pd.DataFrame) -> pd.DataFrame:
+    logging.info("Starting transformation.")
+
     """Perform feature transformations on the Netflix dataset."""
 
     # Extract year from 'date_added' column
@@ -15,5 +18,5 @@ def transform_data(df: pd.DataFrame) -> pd.DataFrame:
     if 'duration' in df.columns:
         df['duration_num'] = df['duration'].str.extract(r'(\d+)').astype(float)
         df['duration_type'] = df['duration'].str.extract(r'([a-zA-Z]+)').fillna('')
-
+    logging.info("Transformation complete.")
     return df
